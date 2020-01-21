@@ -18,4 +18,6 @@ function updateUser(id,obj){
         JSON.stringify(objJSONMap,null,2)
     ); 
 }
-module.exports = updateUser
+module.exports = {
+    user:updateUser
+}
