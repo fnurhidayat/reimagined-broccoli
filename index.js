@@ -9,8 +9,8 @@ switch(method) {
     create({ name, email, password, password_confirmation });
     break;
   case 'update_users':
-    const id = args[0];
-    const obj = args[1];
+    let id = args[1];
+    let obj = JSON.parse(args[2]);
     update(id,obj);
     break;
   default:
