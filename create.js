@@ -1,32 +1,36 @@
 var fs = require('fs');
+var users = require('./data/users.json');
 
-function createData(email, password, password_confirmation) {
-  if (!email && !password && !password_confirmation) {
-    console.log("Data isn't valid!");
-    return;
-  }
-
-  if (password !== password_confirmation) {
-    console.log("Password and its confirmation doesn't match!");
-    return;
-  }
-
-  let data = {
-    email: email,
-    password: password,
-    password_confirmation: password_confirmation
-  }
-
-  let files = fs.readdirSync('./data');
-  fs.writeFileSync(
-    `./data/${files.length + 1}.json`,
-    JSON.stringify(data)
-  ); 
-
-  console.log('Data created!')
+const schema = {
+  id: 'number',
+  name: 'string',
+  email: 'string',
+  password: 'string',
 }
 
-module.exports = {
-  user: createUser,
-  post: createPost
-};
+const createUser = (obj) => {
+  // Simple validation
+  if (obj.password !== obj.password_confirmation) {
+    console.log('Password and it\'s confirmation isn\'t match');
+    return
+  }
+
+  let newUser = {};
+  newUser.id = users.length + 1;
+
+  for (key in obj) {
+    if (Object.keys(schema).includes(key)) {
+      newUser[key] = obj[key]
+    }
+  }
+
+  users.push(newUser);
+  fs.writeFileSync(
+    `./data/users.json`,
+    JSON.stringify(users, null, ' ')
+  );
+
+  console.log('Succesffully created data')
+}
+
+module.exports = createUser

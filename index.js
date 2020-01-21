@@ -1,13 +1,11 @@
 var create = require('./create.js');
 var args = process.argv.slice(2);
+const [ method, name, email, password, password_confirmation ] = args;
 
-switch(args[0]) {
+switch(method) {
   case 'create_users':
-    var email = args[0];
-    var password = args[1];
-    var password_confirmation = args[2];
-
-    create(email, password, password_confirmation);
+    create({ name, email, password, password_confirmation });
+    break;
   default:
     console.log('Unknown operation!')
 }
