@@ -1,23 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "firbert",
-    "email": "firbert@mail.com",
-    "password": "enak123"
-  },
-  {
-    "id": 2,
-    "name": "elham",
-    "email": "ilham22@gmail.com",
-    "password": "satu"
-  },
-  {
-    "id": 3,
-    "name": "elham",
-    "email": "ilham22@gmail.com",
-    "password": "satu"
-  },
-  {
     "id": 4,
     "name": "elham",
     "email": "ilham22@gmail.com",
@@ -175,12 +157,6 @@
   },
   {
     "id": 30,
-    "name": "afdallah",
-    "email": "afdallah.war@gmail.com",
-    "password": "satu"
-  },
-  {
-    "id": 31,
     "name": "afdallah",
     "email": "afdallah.war@gmail.com",
     "password": "satu"
