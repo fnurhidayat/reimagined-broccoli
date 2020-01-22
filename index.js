@@ -3,6 +3,7 @@ var updateUser = require('./update.js').user;
 var deleteUser = require('./delete.js').user;
 var updatePost = require('./update.js').post;
 var deletePost = require('./delete.js').post;
+var read = require('./read.js');
 var args = process.argv.slice(2);
 const method = args[0]
 
@@ -37,6 +38,9 @@ switch(method) {
       console.log(data);
     });  
     break;  
+  case 'read_user':
+    read(args.slice(1)[0])
+    break;
   default:
     console.log('Unknown operation!')
 }
