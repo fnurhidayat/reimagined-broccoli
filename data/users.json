@@ -1,26 +1,8 @@
 [
   {
-    "id": 1,
-    "name": "firbert",
-    "email": "firbert@mail.com",
-    "password": "enak123"
-  },
-  {
-    "id": 2,
-    "name": "elham",
-    "email": "ilham22@gmail.com",
-    "password": "satu"
-  },
-  {
-    "id": 3,
-    "name": "elham",
-    "email": "ilham22@gmail.com",
-    "password": "satu"
-  },
-  {
     "id": 4,
-    "name": "elham",
-    "email": "ilham22@gmail.com",
-    "password": "satu"
+    "name": "firbert3",
+    "email": "firbert4@mail.com",
+    "password": "enak123"
   }
 ]
