@@ -42,7 +42,7 @@ class ActiveRecord {
             newItem.id = items.length + 1;
 
             for (let key in this.data) {
-              if (Object.keys(schema.users).includes(key)) {
+              if (Object.keys(schema[this.table_name]).includes(key)) {
                 newItem[key] = this.data[key];
               }
             }
