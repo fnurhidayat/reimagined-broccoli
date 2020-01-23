@@ -1,16 +1,23 @@
-var create = require('./create.js');
-var updateUser = require('./update.js').user;
-var deleteUser = require('./delete.js').user;
-var updatePost = require('./update.js').post;
-var deletePost = require('./delete.js').post;
-var read = require('./read.js');
+var create = require('./libs/create.js');
+var User = require('./models/user');
+var updateUser = require('./libs/update.js').user;
+var deleteUser = require('./libs/delete.js').user;
+var updatePost = require('./libs/update.js').post;
+var deletePost = require('./libs/delete.js').post;
+var read = require('./libs/read.js');
 var args = process.argv.slice(2);
 const method = args[0]
 
 switch(method) {
   case 'create_users':
     const [ name, email, password, password_confirmation ] = args.slice(1);
-    create.user({ name, email, password, password_confirmation })
+    const user = new User({
+      name: "afdallah",
+      email: "afdallah.war@gmail.com",
+      password: "satu"
+    })
+
+    user.create()
       .then(data => console.log(data))
       .catch(err => console.error(err))
     break;
@@ -25,8 +32,8 @@ switch(method) {
     let id_deleteUser = args[1];
     deleteUser(id_deleteUser).then(data=>{
       console.log(data);
-    });  
-    break; 
+    });
+    break;
   case 'update_post':
     let id_updatePost = args[1];
     let objPost = JSON.parse(args[2]);
@@ -38,8 +45,8 @@ switch(method) {
     let id_deletePost = args[1];
     deletePost(id_deletePost).then(data=>{
       console.log(data);
-    });  
-    break;  
+    });
+    break;
   case 'read_user':
     read(args.slice(1)[0])
     break;

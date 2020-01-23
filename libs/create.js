@@ -1,6 +1,6 @@
 var fs = require('fs');
-var users = require('./data/users.json');
-var posts = require('./data/posts.json');
+var users = require('../data/users.json');
+var posts = require('../data/posts.json');
 
 const schema = {
   users: {
@@ -23,6 +23,7 @@ const isValidType = (data, schema) => {
 
   return true
 }
+
 
 const createUser = (data) => {
   return new Promise(function (resolve, reject) {
