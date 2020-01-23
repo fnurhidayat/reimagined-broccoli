@@ -1,5 +1,5 @@
 var fs = require('fs');
-var users = require('./data/users.json');
+var users = require('../data/users.json');
 
 function readUsers(id) {
     let user = users.filter(user => user.id == id)[0]

@@ -1,8 +1,8 @@
 var fs = require('fs');
 
-function deleteUser(id){  
+function deleteUser(id){
     return new Promise(function(resolve,reject){
-        let objJSON = require('./data/users.json');
+        let objJSON = require('../data/users.json');
         let msg = "Failed update data";
         for (let i in objJSON){
             if (objJSON[i]['id']==id){
@@ -14,12 +14,12 @@ function deleteUser(id){
         fs.writeFileSync(
             `./data/users.json`,
             JSON.stringify(result,null,2)
-        ); 
+        );
         resolve(msg);
     });
 }
 
-function deletePost(id){  
+function deletePost(id){
     return new Promise(function(resolve,reject){
         let objJSON = require('./data/post.json');
         let msg = "Failed update data";
@@ -33,7 +33,7 @@ function deletePost(id){
         fs.writeFileSync(
             `./data/post.json`,
             JSON.stringify(result,null,2)
-        ); 
+        );
         resolve(msg);
     });
 }
