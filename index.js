@@ -1,11 +1,14 @@
-var create = require("./libs/create.js");
-var User = require("./models/user");
-var updateUser = require("./libs/update.js").user;
-var deleteUser = require("./libs/delete.js").user;
-var updatePost = require("./libs/update.js").post;
-var deletePost = require("./libs/delete.js").post;
-var read = require("./libs/read.js");
-var args = process.argv.slice(2);
+const create = require("./libs/create.js");
+const updateUser = require("./libs/update.js").user;
+const deleteUser = require("./libs/delete.js").user;
+const updatePost = require("./libs/update.js").post;
+const deletePost = require("./libs/delete.js").post;
+const read = require("./libs/read.js");
+
+
+const User = require("./models/user");
+const Post = require("./models/post");
+const args = process.argv.slice(2);
 const method = args[0];
 
 switch (method) {
@@ -53,8 +56,10 @@ switch (method) {
         break;
     case "create_posts":
         const [title, body] = args.slice(1);
-        create
-            .post({ title, body })
+        const post = new Post({ title, body });
+
+        post
+            .create({ title, body })
             .then(data => console.log(data))
             .catch(err => console.error(err));
         break;
