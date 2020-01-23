@@ -59,7 +59,7 @@ switch (method) {
         const post = new Post({ title, body });
 
         post
-            .create({ title, body })
+            .create()
             .then(data => console.log(data))
             .catch(err => console.error(err));
         break;
