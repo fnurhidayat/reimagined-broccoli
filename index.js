@@ -12,9 +12,10 @@ switch (method) {
     case "create_users":
         const [name, email, password, password_confirmation] = args.slice(1);
         const user = new User({
-            name: "afdallah",
-            email: "afdallah.war@gmail.com",
-            password: "satu"
+            name,
+            email,
+            password,
+            password_confirmation
         });
 
         user.create()
