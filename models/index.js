@@ -42,16 +42,16 @@ class ActiveRecord {
             newItem.id = items.length + 1;
 
             for (let key in this.data) {
-              if (Object.keys(schema[this.table_name]).includes(key)) {
-                newItem[key] = this.data[key];
-              }
+                if (Object.keys(schema[this.table_name]).includes(key)) {
+                    newItem[key] = this.data[key];
+                }
             }
 
 
             items.push(newItem);
             fs.writeFileSync(
-              `./data/${this.table_name}.json`,
-              JSON.stringify(items, null, 2)
+                `./data/${this.table_name}.json`,
+                JSON.stringify(items, null, 2)
             );
 
             resolve(items)
