@@ -1,12 +1,12 @@
-var ActiveRecord = require('./index')
+const ActiveRecord = require('./index.js');
 
-class User extends ActiveRecord {
-    constructor(data) {
-        super({
-            table_name: 'users',
-            data: data
-        })
-    }
+class User extends ActiveRecord{
+  constructor(data) {
+    super({
+      table_name: 'users',
+      data: data
+    })
+  }
 }
 
-module.exports = User
+module.exports = User;

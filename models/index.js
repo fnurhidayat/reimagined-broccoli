@@ -57,6 +57,51 @@ class ActiveRecord {
             resolve(items)
         })
     }
+
+    update(id){
+        return new Promise((resolve,reject)=>{
+            let objJSON = require(`../data/${this.table_name}.json`);
+            let msg = "Failed update data";
+            let objJSONMap = objJSON.map(i=>{
+                if(i.id==id){
+                    for (let key in i) {
+                    if (Object.keys(schema[this.table_name]).includes(key)) {
+                        i[key] = this.data[key];
+                    }
+                    }
+                    msg="Successfully updated data";
+                    return i;          
+                }
+                else{
+                    return i;
+                }
+            });
+            fs.writeFileSync(
+                `./data/${this.table_name}.json`,
+                JSON.stringify(objJSONMap,null,2)
+            );
+            resolve(msg);
+        });
+    }
+
+    delete(id){
+        return new Promise((resolve,reject)=>{
+            let objJSON = require(`../data/${this.table_name}.json`);
+            let msg = "Failed update data";
+            for (let i in objJSON){
+                if (objJSON[i]['id']==id){
+                    delete objJSON[i];
+                    msg="Successfully deleted data";
+                }
+            }
+            let result = objJSON.filter(i=>i!==null);
+            fs.writeFileSync(
+                `./data/${this.table_name}.json`,
+                JSON.stringify(result,null,2)
+            );
+            resolve(msg);
+        });
+    }
 }
 
 module.exports = ActiveRecord
