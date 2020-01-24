@@ -25,43 +25,49 @@ switch (method) {
       .then(data => console.log(data))
       .catch(err => console.error(err));
 
-    // user
+      // user
       // .create()
       // .then(data => console.log(data))
       // .catch(err => console.error(err));
-    break;
-  case 'update_users':
-    let id_updateUser = args[1];
-    let objUser = JSON.parse(args[2]);
-    updateUser(id_updateUser, objUser).then(data => {
-      console.log(data);
-    });
-    break;
-  case 'delete_users':
-    let id_deleteUser = args[1];
-    deleteUser(id_deleteUser).then(data => {
-      console.log(data);
-    });
-    break;
-  case 'update_post':
-    let id_updatePost = args[1];
-    let objPost = JSON.parse(args[2]);
-    updatePost(id_updatePost, objPost).then(data => {
-      console.log(data);
-    });
-    break;
-  case 'delete_post':
-    let id_deletePost = args[1];
-    deletePost(id_deletePost).then(data => {
-      console.log(data);
-    });
-    break;
-  case 'read_user':
-    read(args.slice(1)[0]);
-    break;
-  case 'create_posts':
-    const [title, body] = args.slice(1);
-    const post = new Post({ title, body });
+        break;
+    case 'update_users':
+        let id_updateUser = args[1];
+        let objUser = JSON.parse(args[2]);
+        const user_update = new User(objUser);
+        user_update.update(id_updateUser).then(data=>{
+            console.log(data);
+        });
+        break;
+    case "delete_users":
+        let id_deleteUser = args[1];
+        const user_delete = new User();
+        user_delete.delete(id_deleteUser).then(data => {
+            console.log(data);
+        });
+        break;
+    case "update_post":
+        let id_updatePost = args[1];
+        let objPost = JSON.parse(args[2]);
+        const post_update = new Post(objPost);
+        post_update.update(id_updatePost).then(data=>{
+            console.log(data);
+        });
+        break;
+    case "delete_post":
+        let id_deletePost = args[1];
+        const post_delete = new Post();
+        post_delete.delete(id_deletePost).then(data => {
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        });
+        break;
+    case "read_user":
+        read(args.slice(1)[0]);
+        break;
+    case "create_posts":
+        const [title, body] = args.slice(1);
+        const post = new Post({ title, body });
 
     post
       .create()
