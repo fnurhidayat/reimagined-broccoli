@@ -1,12 +1,13 @@
-const ActiveRecord = require('./index')
+const ActiveRecord = require('./index');
 
 class Post extends ActiveRecord {
-    constructor(data) {
-        super({
-            table_name: 'posts',
-            data: data
-        })
-    }
+  static table_name = 'posts';
+
+  constructor(data) {
+    super({
+      data: data,
+    });
+  }
 }
 
 module.exports = Post;

@@ -1,62 +1,68 @@
 var fs = require('fs');
 
 const schema = {
-    users: {
-        name: 'string',
-        email: 'string',
-        password: 'string',
-    },
-    posts: {
-        title: 'string',
-        body: 'string',
-    }
-}
+  users: {
+    name: 'string',
+    email: 'string',
+    password: 'string',
+  },
+  posts: {
+    title: 'string',
+    body: 'string',
+  },
+};
 
 class ActiveRecord {
-    constructor(args) {
-        this.table_name = args.table_name;
-        this.data = args.data
-    }
+  static table_name;
 
-    // private isValidType(data, schema) {
-    //     for (let key in schema) {
-    //         if (typeof data[key] != schema[key]) {
-    //             return false
-    //         }
-    //     }
+  constructor(args) {
+    this.data = args;
+  }
 
-    //     return true
-    // }
+  // private isValidType(data, schema) {
+  //     for (let key in schema) {
+  //         if (typeof data[key] != schema[key]) {
+  //             return false
+  //         }
+  //     }
 
-    create() {
-        return new Promise((resolve, reject) => {
-            // Simple validation
-            // if (!isValidType(data, schema.users)) return reject('Schema isn\'t valid');
+  //     return true
+  // }
 
-            // if (this.data.password !== this.data.password_confirmation) {
-            //   reject('Password and it\'s confirmation doesn\'t match');
-            // }
+  static create() {
+    return new Promise((resolve, reject) => {
+      if (fs.existsSync(`./store/${this.table_name}.json`)) {
+        reject(`File ${this.table_name}.json is exists`)
+      } else {
+        fs.writeFileSync(`./store/${this.table_name}.json`, JSON.stringify([]));
+        resolve('Successfully created file');
+      }
+    })
+  }
 
-            const items = require(`${__dirname}/../data/${this.table_name}.json`)
-            let newItem = {};
-            newItem.id = items.length + 1;
+  save() {
+    // check apakah file.json ada
+    // kalo ngga ada reject
+    // Kalo ada push data baru
+    return new Promise((resolve, reject) => {
+      if (!fs.existsSync(`./data/${this.constructor.table_name}.json`)) {
+        reject(`File ${this.table_name}.json doesn't exists`)
+      } else {
+        const files = require('../data/users.json');
 
-            for (let key in this.data) {
-                if (Object.keys(schema[this.table_name]).includes(key)) {
-                    newItem[key] = this.data[key];
-                }
-            }
+        this.data.id = files.length + 1
+        files.push(this.data)
 
+        delete this.data.password_confirmation
 
-            items.push(newItem);
-            fs.writeFileSync(
-                `./data/${this.table_name}.json`,
-                JSON.stringify(items, null, 2)
-            );
-
-            resolve(items)
-        })
-    }
+        fs.writeFileSync(
+          `./data/${this.constructor.table_name}.json`,
+          JSON.stringify(files, null, 2)
+        )
+        resolve(files)
+      }
+    })
+  }
 }
 
-module.exports = ActiveRecord
+module.exports = ActiveRecord;
