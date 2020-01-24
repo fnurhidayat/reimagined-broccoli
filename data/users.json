@@ -234,9 +234,28 @@
     "password": "satu"
   },
   {
-    "id": 41,
     "name": "afdallah",
     "email": "afdallah.war@gmail.com",
-    "password": "satu"
+    "password": "satu",
+    "password_confirmation": "satu",
+    "id": 43
+  },
+  {
+    "name": "afdallah",
+    "email": "afdallah.war@gmail.com",
+    "password": "satu",
+    "id": 44
+  },
+  {
+    "name": "afdallah",
+    "email": "afdallah.war@gmail.com",
+    "password": "satu",
+    "id": 43
+  },
+  {
+    "name": "afdallah",
+    "email": "afdallah.war@gmail.com",
+    "password": "satu",
+    "id": 43
   }
 ]
