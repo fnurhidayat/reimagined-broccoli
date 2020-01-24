@@ -2,6 +2,9 @@ var ActiveRecord = require('./index');
 
 class User extends ActiveRecord {
   static table_name = 'users';
+  #isPasswordConfirmed = () => {
+    return this.password === this.password_confirmation
+  }
 
   constructor(data) {
     super(data);
@@ -10,11 +13,8 @@ class User extends ActiveRecord {
   }
 
   save() {
-    // validate
     return new Promise((resolve, reject) => {
-      if (this.password !== this.password_confirmation) {
-        reject('Your password doesn\'t match')
-      }
+      if (!this.#isPasswordConfirmed()) reject('Your password doesn\'t match');
 
       delete this.password_confirmation
       super.save()
