@@ -1,9 +1,28 @@
 # CRUD Basic
-## Rule
-1. Create function to create data, which require 1 arguments that is object
-2. Just seperate your own function in switch case;
-3. Read function, only require 1 argument in the process.argv, and it's the id
-4. Update function, require 2 argument, id and object.
+**Please Ignore *node_modules/***
+## Create CRUD API
+### Users API
+1. Create GET **/users** endpoint, to get all user data in **users.json**
+2. Create POST **/users** endpoint, to create new user, it takes this request body:
+  ```
+    {
+      "name":"Wuhan",
+      "email":"test01@mail.com",
+      "password":"qwerty",
+      "password_confirmation":"qwerty"
+    }
+  ```
+3. Password and its confirmation should have match.
+  
+### Posts API
+1. Create GET **/posts** endpoint, to get all post data in **posts.json**
+2. Create POST **/posts** endpoint, to create new posts, it takes this request body:
+  ```
+    {
+      "title":"Lorem",
+      "body":"Ipsum Dolor Sit Amet"
+    }
+  ```
 
 ## Schema
 ### Users
