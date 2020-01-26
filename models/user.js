@@ -20,7 +20,6 @@ class User extends ActiveRecord {
       super.save()
         .then(data => resolve(data));
     })
-
   }
 }
 

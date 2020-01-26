@@ -30,6 +30,26 @@ app.post('/users', async function(req, res) {
   }
 });
 
+app.post('/posts', async function(req, res) {
+  try {
+    const data = await new Post(req.body).save()
+
+    res
+      .status(201)
+      .json({
+        status: true,
+        data
+      });
+  } catch (err) {
+    res
+      .status(400)
+      .json({
+        status: false,
+        error: err
+      })
+  }
+});
+
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 // switch (method) {
