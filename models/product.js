@@ -4,9 +4,7 @@ class Product extends ActiveRecord {
   static table_name = 'products';
 
   constructor(data) {
-    super({
-      data: data,
-    });
+    super(data);
   }
 }
 

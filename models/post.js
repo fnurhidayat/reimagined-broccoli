@@ -4,9 +4,7 @@ class Post extends ActiveRecord {
   static table_name = 'posts';
 
   constructor(data) {
-    super({
-      data: data,
-    });
+    super(data);
   }
 }
 

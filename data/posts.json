@@ -1,33 +1,27 @@
 [
   {
-    "id": 1,
-    "title": "judul keren",
-    "body": "konten sangat panjang"
+    "title": "Once upon a time",
+    "body": "Content is root of novel",
+    "id": 1
   },
   {
-    "id": 2,
-    "title": "firb2",
-    "body": "<h1>firb2</h1>"
+    "title": "Once upon a time",
+    "body": "Content is root of novel",
+    "id": 2
   },
   {
-    "data": {
-      "title": "Once upon a time",
-      "body": "Content is root of novel"
-    },
+    "title": "Once upon a time",
+    "body": "Content is root of novel",
     "id": 3
   },
   {
-    "data": {
-      "title": "Once upon a time",
-      "body": "Content is root of novel"
-    },
+    "title": "Once upon a time",
+    "body": "Content is root of novel",
     "id": 4
   },
   {
-    "data": {
-      "title": "Once upon a time",
-      "body": "Content is root of novel"
-    },
+    "title": "Once upon a time",
+    "body": "Content is root of novel",
     "id": 5
   }
 ]

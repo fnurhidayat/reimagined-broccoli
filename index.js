@@ -53,13 +53,13 @@ app.post('/posts', async function(req, res) {
 
 app.post('/products', async (req, res) => {
   try {
-    const products = await new Products(req.body).save()
+    const data = await new Product(req.body).save()
 
     res
       .status(201)
       .json({
         status: true,
-        data: products
+        data
       })
   } catch (err) {
     res.status(400)
