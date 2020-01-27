@@ -10,6 +10,10 @@ const schema = {
     title: 'string',
     body: 'string',
   },
+  posts: {
+    name: 'string',
+    price: 'number',
+  },
 };
 
 class ActiveRecord {
