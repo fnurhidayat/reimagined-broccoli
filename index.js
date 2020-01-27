@@ -1,5 +1,6 @@
 const User = require('./models/user');
 const Post = require('./models/post');
+const Product = require('./models/product');
 const args = process.argv.slice(2);
 const method = args[0];
 
@@ -49,6 +50,25 @@ app.post('/posts', async function(req, res) {
       })
   }
 });
+
+app.post('/products', async (req, res) => {
+  try {
+    const products = await new Products(req.body).save()
+
+    res
+      .status(201)
+      .json({
+        status: true,
+        data: products
+      })
+  } catch (err) {
+    res.status(400)
+      .json({
+        status: false,
+        error: err
+      })
+  }
+})
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
