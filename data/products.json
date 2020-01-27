@@ -1,16 +1,27 @@
 [
   {
-    "data": {
-      "name": "shampoo",
-      "price": 30000
-    },
+    "name": "kecap",
+    "price": 30000,
     "id": 1
   },
   {
-    "data": {
-      "name": "shampoo",
-      "price": 30000
-    },
+    "name": "kecap",
+    "price": 30000,
     "id": 2
+  },
+  {
+    "name": "kecap",
+    "price": 30000,
+    "id": 3
+  },
+  {
+    "name": "kecap",
+    "price": 30000,
+    "id": 4
+  },
+  {
+    "name": "kecap",
+    "price": 30000,
+    "id": 5
   }
 ]

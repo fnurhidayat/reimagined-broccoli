@@ -10,7 +10,7 @@ const schema = {
     title: 'string',
     body: 'string',
   },
-  posts: {
+  products: {
     name: 'string',
     price: 'number',
   },
