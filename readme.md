@@ -28,17 +28,17 @@
 ### Users
 ```JSON
 {
-  id: number,
-  name: string,
-  email: string,
-  password: string
+  "id": "number",
+  "name": "string",
+  "email": "string",
+  "password": "string"
 }
 ```
 ### Post
 ```JSON
 {
-  id: number,
-  title: string,
-  body: string
+  "id": "number",
+  "title": "string",
+  "body": "string"
 }
 ```
